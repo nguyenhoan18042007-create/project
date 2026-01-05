@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Anh iuuu em nhìu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(270deg, #ff758c, #ff7eb3, #fad0c4);
+            background-size: 600% 600%;
+            animation: bgMove 12s ease infinite;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ===== NỀN: NHIỀU "ANH XIN LỖI" ===== */
+        .bg-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bg-text {
+            position: absolute;
+            font-size: 80px;
+            color: rgba(255,255,255,0.12);
+            filter: blur(2px);
+            white-space: nowrap;
+            animation: moveSlow 14s linear infinite;
+        }
+
+        @keyframes moveSlow {
+            from { transform: translateX(-120%); }
+            to { transform: translateX(120%); }
+        }
+
+        /* ===== NỘI DUNG CHÍNH ===== */
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 64px;
+            text-shadow:
+                0 0 10px rgba(255,255,255,0.9),
+                0 0 25px rgba(255,105,180,0.9);
+        }
+
+        .love {
+            margin-top: 20px;
+            font-size: 46px;
+            color: #ff2f92;
+            text-shadow:
+                0 0 10px #ff2f92,
+                0 0 25px #ff8acb;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        /* ===== TRÁI TIM BAY ===== */
+        .heart {
+            position: absolute;
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NỀN NHIỀU "ANH XIN LỖI" -->
+<div class="bg-layer">
+    <div class="bg-text" style="top:10%; animation-duration:18s;">anh xin lỗi</div>
+    <div class="bg-text" style="top:25%; animation-duration:22s;">anh xin lỗi</div>
+    <div class="bg-text" style="top:40%; animation-duration:20s;">anh xin lỗi</div>
+    <div class="bg-text" style="top:55%; animation-duration:24s;">anh xin lỗi</div>
+    <div class="bg-text" style="top:70%; animation-duration:19s;">anh xin lỗi</div>
+    <div class="bg-text" style="top:85%; animation-duration:26s;">anh xin lỗi</div>
+</div>
+
+<!-- NỘI DUNG CHÍNH -->
+<div class="container">
+    <h1>Anh iuuu em nhìu</h1>
+    <div class="love">YÊU VQN ❤</div>
+</div>
+
+<script>
+    // Trái tim bay
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 12 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }, 250);
+</script>
+
+</body>
+</html>
+
